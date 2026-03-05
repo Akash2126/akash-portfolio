@@ -57,7 +57,7 @@ export default function Hero() {
             </h1>
 
             {/* Title */}
-            <p className="text-blue-600 font-semibold text-lg mb-2">
+            <p className="text-blue-600 font-semibold text-base sm:text-lg mb-2">
               Machine Learning Engineer
             </p>
 
