@@ -1,11 +1,11 @@
-import pythonLogo from "../assets/logos/python.png"
-import fastapiLogo from "../assets/logos/fastapi.png"
-import kafkaLogo from "../assets/logos/kafka.png"
+import pythonLogo from "../assets/logos/python.svg"
+import fastapiLogo from "../assets/logos/fastapi.svg"
+import kafkaLogo from "../assets/logos/kafka.svg"
 import awsLogo from "../assets/logos/aws.png"
 import googleLogo from "../assets/logos/google.png"
-import dockerLogo from "../assets/logos/docker.png"
-import postgresqlLogo from "../assets/logos/postgresql.png"
-import reactLogo from "../assets/logos/react.png"
+import dockerLogo from "../assets/logos/docker.svg"
+import postgresqlLogo from "../assets/logos/postgresql.svg"
+import reactLogo from "../assets/logos/react.svg"
 
 const technologies = [
   { name: 'Python', logo: pythonLogo },

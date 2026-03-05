@@ -1,0 +1,1 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><path fill="#009485" d="M64 2C30.8 2 2 30.8 2 64s28.8 62 62 62 62-28.8 62-62S97.2 2 64 2zm0 4c32 0 58 26 58 58s-26 58-58 58-58-26-58-58 26-58 58-58z"/><text x="64" y="75" font-size="40" text-anchor="middle" fill="white">FastAPI</text></svg>
