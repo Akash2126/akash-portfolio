@@ -1,0 +1,214 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #ffffff;
+    color: #0f172a;
+    overflow-x: hidden;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f1f5f9;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #2563eb;
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #1d4ed8;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary-600 text-white px-6 py-3 rounded-xl font-semibold
+           hover:bg-primary-700 transition-all duration-300 hover:shadow-lg
+           hover:shadow-primary-600/30 hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  .btn-outline {
+    @apply border-2 border-primary-600 text-primary-600 px-6 py-3 rounded-xl font-semibold
+           hover:bg-primary-600 hover:text-white transition-all duration-300
+           hover:shadow-lg hover:shadow-primary-600/30 hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold text-slate-900 mb-4;
+  }
+
+  .section-subtitle {
+    @apply text-lg text-slate-500 mb-12 max-w-2xl;
+  }
+
+  .card {
+    @apply bg-white rounded-2xl shadow-sm border border-slate-100
+           hover:shadow-xl hover:shadow-primary-600/10 transition-all duration-300
+           hover:-translate-y-1;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold
+           bg-primary-50 text-primary-700 border border-primary-100;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary-600 to-blue-400 bg-clip-text text-transparent;
+  }
+
+  .section-padding {
+    @apply py-20 px-4 md:px-8 lg:px-16;
+  }
+
+  .grid-dot-bg {
+    background-image: radial-gradient(circle, #dbeafe 1px, transparent 1px);
+    background-size: 30px 30px;
+  }
+}
+
+/* Skill bar animation */
+.skill-bar-fill {
+  width: 0%;
+  transition: width 1.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.skill-bar-fill.animate {
+  width: var(--skill-width);
+}
+
+/* Typing cursor blink */
+.typing-cursor::after {
+  content: '|';
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Navbar blur */
+.navbar-blur {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Company slider */
+.slider-track {
+  display: flex;
+  width: max-content;
+  animation: scroll 30s linear infinite;
+}
+
+.slider-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Mesh gradient hero */
+.mesh-gradient {
+  background: radial-gradient(ellipse at 20% 50%, rgba(37, 99, 235, 0.08) 0%, transparent 60%),
+              radial-gradient(ellipse at 80% 20%, rgba(96, 165, 250, 0.08) 0%, transparent 60%),
+              radial-gradient(ellipse at 50% 80%, rgba(37, 99, 235, 0.05) 0%, transparent 60%),
+              #ffffff;
+}
+
+/* Floating animation for hero image */
+@keyframes floatUp {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-12px) rotate(1deg); }
+  66% { transform: translateY(-6px) rotate(-1deg); }
+}
+
+.float-animation {
+  animation: floatUp 8s ease-in-out infinite;
+}
+
+/* Shine effect for cards */
+.shine-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.shine-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.6),
+    transparent
+  );
+  transition: 0.6s;
+}
+
+.shine-card:hover::before {
+  left: 100%;
+}
+
+/* Status badge colors */
+.status-completed {
+  @apply bg-emerald-50 text-emerald-700 border border-emerald-200;
+}
+
+.status-progress {
+  @apply bg-amber-50 text-amber-700 border border-amber-200;
+}
+
+/* AOS overrides */
+[data-aos] {
+  pointer-events: none;
+}
+
+[data-aos].aos-animate {
+  pointer-events: auto;
+}
+
+/* Hero gradient animation */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Modal fade in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out forwards;
+}
