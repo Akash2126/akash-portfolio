@@ -62,13 +62,13 @@ export default function Hero() {
             </p>
 
             {/* Education & Internship */}
-            <p className="text-gray-500 text-sm mb-3 text-center">
+            <p className="text-gray-500 text-xs sm:text-sm mb-2 md:mb-3 text-center">
               MCA | Machine Learning Intern at <span className="text-blue-600 font-medium">SmartBridge</span>
             </p>
 
             {/* Location */}
-            <div className="flex items-center gap-1 text-gray-500 text-sm">
-              <FiMapPin size={14} />
+            <div className="flex items-center gap-1 text-gray-500 text-xs sm:text-sm">
+              <FiMapPin size={12} className="sm:size-14" />
               <span>Noida, India | Open to Remote</span>
             </div>
           </div>
