@@ -51,21 +51,23 @@ export default function Certifications() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
               viewport={{ once: true }}
-            >
-              {cert.verified && (
-                <span className="absolute top-3 right-3 text-xs font-semibold px-2 py-1 rounded-full bg-green-100 text-green-700">
-                  Verified ✓
-                </span>
-              )}
-              <div className="flex items-center gap-4 mb-4">
-                <div className={`w-14 h-14 bg-gradient-to-br ${cert.color} rounded-2xl flex items-center justify-center text-2xl shadow-md group-hover:scale-110 transition-transform duration-300`}>
-                  {cert.icon}
-                </div>
-                <div>
-                  <div className="text-xs font-semibold text-primary-600 bg-primary-50 border border-primary-100 px-2.5 py-1 rounded-full inline-block">
-                    {cert.issuer}
+              >
+              <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
+                <div className="flex items-center gap-4">
+                  <div className={`w-14 h-14 bg-gradient-to-br ${cert.color} rounded-2xl flex items-center justify-center text-2xl shadow-md group-hover:scale-110 transition-transform duration-300`}>
+                    {cert.icon}
+                  </div>
+                  <div>
+                    <div className="text-xs font-semibold text-primary-600 bg-primary-50 border border-primary-100 px-2.5 py-1 rounded-full inline-block">
+                      {cert.issuer}
+                    </div>
                   </div>
                 </div>
+                {cert.verified && (
+                  <span className="text-xs font-semibold px-2 py-1 rounded-full bg-green-100 text-green-700">
+                    Verified ✓
+                  </span>
+                )}
               </div>
 
               <h3 className="font-bold text-slate-900 text-base mb-2 group-hover:text-primary-600 transition-colors duration-200">

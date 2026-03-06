@@ -123,36 +123,32 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Menu */}
-      <div
-        className={`md:hidden transition-all duration-300 overflow-hidden ${
-          mobileOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-        }`}
-      >
-        <div className="bg-white rounded-2xl shadow-xl p-4 space-y-3 mx-4 mb-4">
+      {mobileOpen && (
+        <div className="fixed inset-0 bg-black/40 z-50 md:hidden" onClick={() => setMobileOpen(false)}>
+          <div className="bg-white rounded-xl p-6 mx-4 mt-20 shadow-xl" onClick={(e) => e.stopPropagation()}>
+            <div className="space-y-1">
+              {navLinks.map((link) => (
+                <button
+                  key={link.label}
+                  onClick={() => handleNavClick(link.href)}
+                  className="w-full flex items-center justify-between p-4 border-b border-gray-200 hover:bg-gray-50 transition-colors"
+                >
+                  <span className="font-medium text-gray-800">{link.label}</span>
+                </button>
+              ))}
 
-          {navLinks.map((link) => (
-            <button
-              key={link.label}
-              onClick={() => handleNavClick(link.href)}
-              className="w-full flex items-center justify-between px-4 py-3 rounded-xl bg-blue-50 hover:bg-blue-100 transition-all duration-200 shadow-sm group"
-            >
-              <span className="font-medium text-gray-800 group-hover:text-gray-900">{link.label}</span>
-              <FiArrowRight className="text-gray-400 group-hover:text-blue-600 transition-colors duration-200" />
-            </button>
-          ))}
-
-          <div className="pt-2">
-            <button
-              onClick={() => handleNavClick('#contact')}
-              className="w-full flex items-center justify-between px-4 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 transition-all duration-200 shadow-md group"
-            >
-              <span className="font-semibold text-white">Hire Me</span>
-              <FiArrowRight className="text-white/80 group-hover:text-white transition-colors duration-200" />
-            </button>
+              <div className="pt-4">
+                <button
+                  onClick={() => handleNavClick('#contact')}
+                  className="w-full flex items-center justify-center p-4 rounded-xl bg-blue-600 hover:bg-blue-700 transition-colors"
+                >
+                  <span className="font-semibold text-white">Hire Me</span>
+                </button>
+              </div>
+            </div>
           </div>
-
         </div>
-      </div>
+      )}
 
     </nav>
   )

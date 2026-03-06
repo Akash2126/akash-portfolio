@@ -137,20 +137,18 @@ export default function ProjectCard({ project }) {
         </div>
 
         {/* Actions */}
-        <div className="flex flex-wrap gap-3 mt-4 pt-4 border-t border-slate-100">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-4 pt-4 border-t border-slate-100">
           {project.github ? (
-<a
+            <a
               href={project.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-all duration-200"
+              className="text-sm px-3 py-2 rounded-lg font-medium text-center bg-blue-600 text-white hover:bg-blue-700 transition-all duration-200"
             >
-              <FiGithub className="text-black" size={14} />
               View Code
             </a>
           ) : (
-            <span className="flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg bg-gray-100 text-gray-400 cursor-not-allowed">
-              <FiGithub className="text-black" size={14} />
+            <span className="text-sm px-3 py-2 rounded-lg font-medium text-center bg-gray-100 text-gray-400 cursor-not-allowed">
               Coming Soon
             </span>
           )}
@@ -158,9 +156,8 @@ export default function ProjectCard({ project }) {
           {project.demoImage ? (
             <button
               onClick={() => setShowImageModal(true)}
-              className="flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-all duration-200"
+              className="text-sm px-3 py-2 rounded-lg font-medium text-center bg-blue-600 text-white hover:bg-blue-700 transition-all duration-200"
             >
-              <FiPlay size={14} />
               Live Demo
             </button>
           ) : project.demoUrl ? (
@@ -168,17 +165,15 @@ export default function ProjectCard({ project }) {
               href={project.demoUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-all duration-200"
+              className="text-sm px-3 py-2 rounded-lg font-medium text-center bg-blue-600 text-white hover:bg-blue-700 transition-all duration-200"
             >
-              <FiPlay size={14} />
               Live Demo
             </a>
           ) : (
             <button
               onClick={() => setShowDemo(true)}
-              className="flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-all duration-200"
+              className="text-sm px-3 py-2 rounded-lg font-medium text-center bg-blue-600 text-white hover:bg-blue-700 transition-all duration-200"
             >
-              <FiPlay size={14} />
               Live Demo
             </button>
           )}
@@ -189,9 +184,8 @@ export default function ProjectCard({ project }) {
               href={project.projectDoc}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-all duration-200"
+              className="text-sm px-3 py-2 rounded-lg font-medium text-center bg-blue-600 text-white hover:bg-blue-700 transition-all duration-200"
             >
-              <FiFile size={14} />
               Project Doc
             </a>
           )}
@@ -199,9 +193,8 @@ export default function ProjectCard({ project }) {
           {project.demoImage ? (
             <button
               onClick={() => setShowImageModal(true)}
-              className="flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-all duration-200"
+              className="text-sm px-3 py-2 rounded-lg font-medium text-center bg-blue-600 text-white hover:bg-blue-700 transition-all duration-200"
             >
-              <FiExternalLink size={14} />
               Case Study
             </button>
           ) : project.demoUrl ? (
@@ -209,17 +202,15 @@ export default function ProjectCard({ project }) {
               href={project.demoUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-all duration-200"
+              className="text-sm px-3 py-2 rounded-lg font-medium text-center bg-blue-600 text-white hover:bg-blue-700 transition-all duration-200"
             >
-              <FiExternalLink size={14} />
               Case Study
             </a>
           ) : (
             <Link
               to={`/case-study/${caseStudyKey}`}
-              className="flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-all duration-200"
+              className="text-sm px-3 py-2 rounded-lg font-medium text-center bg-blue-600 text-white hover:bg-blue-700 transition-all duration-200"
             >
-              <FiExternalLink size={14} />
               Case Study
             </Link>
           )}
