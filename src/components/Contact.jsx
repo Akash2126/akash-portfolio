@@ -38,7 +38,7 @@ export default function Contact() {
     <section id="contact" className="section-padding bg-white">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-14" data-aos="fade-up">
+        <div className="text-center mb-6" data-aos="fade-up">
           <span className="badge mx-auto mb-4">Get in Touch</span>
           <h2 className="section-title">Let's Connect</h2>
           <p className="section-subtitle mx-auto text-center">
@@ -52,7 +52,7 @@ export default function Contact() {
         </div>
 
         {/* Cards */}
-        <div className="grid sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 lg:gap-8 max-w-4xl mx-auto">
           {contacts.map((c, i) => (
             <div
               key={i}
@@ -80,18 +80,18 @@ export default function Contact() {
 
         {/* Bottom CTA banner */}
         <div
-          className="mt-16 bg-gradient-to-r from-primary-600 to-blue-500 rounded-3xl p-10 text-center text-white relative overflow-hidden"
+          className="mt-10 bg-gradient-to-r from-primary-600 to-blue-500 rounded-2xl p-8 text-center text-white relative overflow-hidden"
           data-aos="fade-up"
         >
           <div className="absolute inset-0 grid-dot-bg opacity-10" />
           <div className="relative z-10">
-            <h3 className="text-2xl font-bold mb-2">Ready to collaborate?</h3>
-            <p className="text-blue-100 mb-6 text-sm max-w-md mx-auto">
+            <h3 className="text-xl font-bold mb-2">Ready to collaborate?</h3>
+            <p className="text-blue-100 mb-4 text-sm max-w-md mx-auto">
               Whether it's a full-time ML role, internship, or a project — I'm all ears.
             </p>
             <a
               href="mailto:kumarakash02401@gmail.com"
-              className="inline-flex items-center gap-2 bg-white text-primary-600 font-semibold px-6 py-3 rounded-xl hover:bg-blue-50 transition-colors"
+              className="inline-flex items-center gap-2 bg-white text-primary-600 font-semibold px-5 py-2.5 rounded-xl hover:bg-blue-50 transition-colors"
             >
               <FiMail size={16} />
               Drop me an email

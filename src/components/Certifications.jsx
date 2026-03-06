@@ -5,7 +5,7 @@ export default function Certifications() {
   return (
     <section id="certifications" className="section-padding bg-white">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-14" data-aos="fade-up">
+        <div className="text-center mb-10" data-aos="fade-up">
           <span className="badge mx-auto mb-4">Credentials</span>
           <h2 className="section-title">Certifications</h2>
           <p className="section-subtitle mx-auto text-center">
@@ -13,7 +13,7 @@ export default function Certifications() {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
           {certifications.map((cert, i) => (
             <div
               key={cert.id}
@@ -56,7 +56,7 @@ export default function Certifications() {
         </div>
 
         {/* Google Skill Badges CTA */}
-        <div className="mt-12 text-center" data-aos="fade-up">
+        <div className="mt-8 text-center" data-aos="fade-up">
           <a
             href="https://www.skills.google/public_profiles/37d6579a-dd72-4138-a7b3-ff592ad971e3"
             target="_blank"

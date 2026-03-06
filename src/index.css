@@ -51,12 +51,12 @@
            hover:shadow-lg hover:shadow-primary-600/30 hover:-translate-y-0.5 active:translate-y-0;
   }
 
-  .section-title {
-    @apply text-3xl md:text-4xl font-bold text-slate-900 mb-4;
+.section-title {
+    @apply text-2xl md:text-3xl font-bold text-slate-900 mb-4;
   }
 
   .section-subtitle {
-    @apply text-lg text-slate-500 mb-12 max-w-2xl;
+    @apply text-base text-slate-500 mb-8 max-w-2xl;
   }
 
   .card {
@@ -74,8 +74,8 @@
     @apply bg-gradient-to-r from-primary-600 to-blue-400 bg-clip-text text-transparent;
   }
 
-  .section-padding {
-    @apply py-20 px-4 md:px-8 lg:px-16;
+.section-padding {
+    @apply py-10 md:py-14 px-4 md:px-6;
   }
 
   .grid-dot-bg {

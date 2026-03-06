@@ -110,7 +110,7 @@ export default function Skills() {
   return (
     <section id="skills" className="section-padding bg-white">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-14" data-aos="fade-up">
+        <div className="text-center mb-6" data-aos="fade-up">
           <span className="badge mx-auto mb-4">Skills</span>
           <h2 className="section-title">Technical Proficiency</h2>
           <p className="section-subtitle mx-auto text-center">
@@ -118,7 +118,7 @@ export default function Skills() {
           </p>
         </div>
 
-        <div ref={ref} className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+        <div ref={ref} className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto">
           {skillCategories.map((category, i) => (
             <SkillCategory 
               key={category.name} 

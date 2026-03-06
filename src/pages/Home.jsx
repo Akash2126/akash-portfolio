@@ -1,13 +1,13 @@
 import Navbar from '../components/Navbar'
 import Hero from '../components/Hero'
 import About from '../components/About'
-import AreasOfWork from '../components/AreasOfWork'
 import Skills from '../components/Skills'
-import CurrentlyBuilding from '../components/CurrentlyBuilding'
+import AreasOfWork from '../components/AreasOfWork'
+import Experiences from '../components/Experiences'
 import Projects from '../components/Projects'
-import Certifications from '../components/Certifications'
-import Companies from '../components/Companies'
 import GitHubStats from '../components/GitHubStats'
+import Certifications from '../components/Certifications'
+import CommunityKnowledgeSharing from '../components/CommunityKnowledgeSharing'
 import Contact from '../components/Contact'
 import Footer from '../components/Footer'
 
@@ -18,13 +18,13 @@ export default function Home() {
       <main>
         <Hero />
         <About />
-        <AreasOfWork />
         <Skills />
-        <CurrentlyBuilding />
+        <AreasOfWork />
+        <Experiences />
         <Projects />
-        <Certifications />
-        <Companies />
         <GitHubStats />
+        <Certifications />
+        <CommunityKnowledgeSharing />
         <Contact />
       </main>
       <Footer />

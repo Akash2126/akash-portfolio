@@ -9,6 +9,7 @@ export const projects = [
     status: 'Completed',
     icon: '🏥',
     color: 'from-blue-500 to-cyan-500',
+    domain: 'Healthcare AI',
     metrics: {
       accuracy: 'N/A',
       dataset: '500+ hospitals',
@@ -26,6 +27,7 @@ export const projects = [
     status: 'Completed',
     icon: '📦',
     color: 'from-indigo-500 to-blue-500',
+    domain: 'E-commerce Analytics',
     metrics: {
       accuracy: '87%',
       dataset: '50k rows',
@@ -43,6 +45,7 @@ export const projects = [
     status: 'Completed',
     icon: '🩺',
     color: 'from-blue-600 to-violet-500',
+    domain: 'Healthcare Monitoring',
     metrics: {
       accuracy: '94%',
       dataset: 'Real-time streaming',
@@ -62,11 +65,26 @@ export const projects = [
     status: 'In Progress',
     icon: '💰',
     color: 'from-amber-500 to-orange-500',
+    domain: 'Financial AI',
     metrics: {
       accuracy: 'In Progress',
       dataset: 'User financial data',
       model: 'ML + NLP'
     },
     caseStudy: 'finrelief-ai'
+  },
+  {
+    id: 5,
+    title: 'GenMed AI Chatbot',
+    description:
+      'AI-powered medical chatbot built using LangChain, OpenAI GPT, and Pinecone vector database using Retrieval-Augmented Generation (RAG).',
+    tech: ['Python', 'LangChain', 'Flask', 'OpenAI GPT', 'Pinecone', 'AWS', 'Docker'],
+    github: 'https://github.com/Akash2126/GenMed-AI-Chatbot-Project',
+    status: 'Completed',
+    icon: '🏥',
+    color: 'from-teal-500 to-cyan-500',
+    domain: 'Healthcare AI',
+    demoImage: '/images/genmed-chatbot.png',
+    caseStudy: 'genmed-ai-chatbot'
   },
 ]

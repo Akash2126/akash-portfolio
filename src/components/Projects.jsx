@@ -6,16 +6,15 @@ export default function Projects() {
   return (
     <section id="projects" className="section-padding bg-white">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-14" data-aos="fade-up">
+        <div className="text-center mb-6" data-aos="fade-up">
           <span className="badge mx-auto mb-4">Work</span>
           <h2 className="section-title">Featured Projects</h2>
           <p className="section-subtitle mx-auto text-center">
-            AI and ML projects tackling real-world problems across healthcare,
-            e-commerce, and finance.
+            AI, ML, and Data Engineering projects solving real-world problems across healthcare, finance, and e-commerce domains.
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 lg:gap-8 max-w-7xl mx-auto">
           {projects.map((project, i) => (
             <div
               key={project.id}
@@ -28,7 +27,7 @@ export default function Projects() {
         </div>
 
         {/* CTA */}
-        <div className="text-center mt-12" data-aos="fade-up">
+        <div className="text-center mt-8" data-aos="fade-up">
           <a
             href="https://github.com/Akash2126"
             target="_blank"
