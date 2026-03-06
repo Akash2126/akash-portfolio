@@ -1,6 +1,21 @@
 import { useState, useEffect } from 'react'
+import { motion } from 'framer-motion'
 import { TypeAnimation } from 'react-type-animation'
 import { FiUser, FiCode, FiBriefcase, FiAward } from 'react-icons/fi'
+
+const fadeInUp = {
+  initial: { opacity: 0, y: 40 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.5 }
+}
+
+const staggerContainer = {
+  animate: {
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
+}
 
 const highlights = [
   {
@@ -34,15 +49,31 @@ export default function About() {
   }, [])
 
   return (
-    <section id="about" className="py-10 md:py-14 bg-white">
+    <motion.section 
+      id="about" 
+      className="mt-12 md:mt-16 py-10 md:py-14 bg-white"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      viewport={{ once: true }}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Two Column Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 mt-12 items-start max-w-7xl mx-auto">
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 mt-6 items-start max-w-7xl mx-auto"
+          variants={staggerContainer}
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true }}
+        >
           {/* Left Column - Heading, Subtitle, Paragraphs and Skills */}
-          <div className="text-left max-w-xl">
+          <motion.div 
+            className="text-left max-w-xl"
+            variants={fadeInUp}
+          >
             {/* About Me Badge - Centered */}
             <div className="w-full text-center">
-              <span className="px-4 py-1 text-sm rounded-full bg-blue-50 text-blue-600 border border-blue-100 mb-6 inline-block">
+              <span className="px-4 py-1 text-sm rounded-full bg-gradient-to-r from-red-500/10 via-green-500/10 to-blue-500/10 text-blue-600 border border-gray-200 mb-6 inline-block font-medium">
                 About Me
               </span>
             </div>
@@ -52,7 +83,7 @@ export default function About() {
               <span className={`transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
                 Passionate about building{' '}
                 <br />
-                <span className="bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-red-500 via-green-500 to-blue-500 bg-clip-text text-transparent">
                   <TypeAnimation
                     sequence={[
                       'AI-driven systems',
@@ -93,17 +124,24 @@ export default function About() {
             {/* Skills Tags */}
             <div className="flex flex-wrap gap-3 mt-6">
               {['Python', 'Machine Learning', 'FastAPI', 'Kafka', 'SQL', 'LLMs', 'Generative AI'].map((tag) => (
-                <span key={tag} className="px-3 py-1 text-sm rounded-full bg-blue-50 text-blue-600 border border-blue-100">{tag}</span>
+                <span key={tag} className="px-3 py-1 text-sm rounded-full bg-gradient-to-r from-red-500/10 via-green-500/10 to-blue-500/10 text-gray-800 border border-gray-200 hover:from-red-500/20 hover:via-green-500/20 hover:to-blue-500/20 transition-all duration-200">{tag}</span>
               ))}
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Column - Feature Cards */}
-          <div className="space-y-5">
+          <motion.div 
+            className="space-y-5"
+            variants={fadeInUp}
+          >
             {highlights.map((item, i) => (
-              <div
+              <motion.div
                 key={i}
                 className="card p-6 flex gap-4 shine-card hover:scale-[1.02] hover:shadow-xl transition-all duration-300"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: i * 0.1 }}
+                viewport={{ once: true }}
               >
                 <div className="w-12 h-12 bg-primary-50 text-primary-600 rounded-xl flex items-center justify-center shrink-0">
                   {item.icon}
@@ -112,12 +150,12 @@ export default function About() {
                   <h3 className="font-semibold text-slate-900 mb-1">{item.title}</h3>
                   <p className="text-sm text-slate-500 leading-relaxed">{item.desc}</p>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   )
 }
 

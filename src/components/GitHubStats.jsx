@@ -1,6 +1,14 @@
 import { useState } from 'react'
 import { FiGithub, FiCode, FiExternalLink } from 'react-icons/fi'
 import { FaCode } from 'react-icons/fa'
+import { motion } from 'framer-motion'
+
+const fadeInUp = {
+  initial: { opacity: 0, y: 40 },
+  whileInView: { opacity: 1, y: 0 },
+  transition: { duration: 0.5 },
+  viewport: { once: true }
+}
 
 const GITHUB_USER = 'Akash2126'
 
@@ -12,8 +20,8 @@ function GitHubImageCard({ src, alt, fallbackTitle, fallbackDesc, icon: Icon }) 
       {error ? (
         // Fallback placeholder
         <div className="p-6 flex flex-col items-center justify-center min-h-[150px] text-center">
-          <div className="w-14 h-14 bg-gray-100 rounded-xl flex items-center justify-center mb-4">
-            <Icon className="text-gray-400" size={28} />
+          <div className="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-4">
+            <Icon className={Icon === FiGithub ? "text-black" : "text-blue-600"} size={28} />
           </div>
           <h3 className="font-semibold text-gray-900 mb-2">{fallbackTitle}</h3>
           <p className="text-sm text-gray-500">{fallbackDesc}</p>
@@ -38,20 +46,39 @@ export default function GitHubStats() {
   const graphImageUrl = `https://github-readme-activity-graph.vercel.app/graph?username=${GITHUB_USER}&theme=github-compact`
 
   return (
-    <section id="github" className="py-10 md:py-14 bg-white">
+    <motion.section 
+      id="github" 
+      className="py-10 md:py-14 bg-white"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      viewport={{ once: true }}
+    >
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         {/* Section Heading */}
-        <div className="text-center mb-6">
+        <motion.div 
+          className="text-center mb-6"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+        >
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
             GitHub Performance
           </h2>
           <p className="mt-3 text-gray-500 max-w-2xl mx-auto text-sm md:text-base">
             My contributions, top languages, and open-source activity on GitHub.
           </p>
-        </div>
+        </motion.div>
 
         {/* Row 1: GitHub Stats | Top Languages */}
-        <div className="grid md:grid-cols-2 gap-6 mb-6 max-w-5xl mx-auto">
+        <motion.div 
+          className="grid md:grid-cols-2 gap-6 mb-6 max-w-5xl mx-auto"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          viewport={{ once: true }}
+        >
           <GitHubImageCard
             src={statsImageUrl}
             alt="GitHub Stats - Repository count, commits, and contributions"
@@ -66,10 +93,16 @@ export default function GitHubStats() {
             fallbackDesc="Most frequently used technologies across projects."
             icon={FaCode}
           />
-        </div>
+        </motion.div>
 
         {/* Row 2: GitHub Streak (Centered) */}
-        <div className="mb-6 max-w-5xl mx-auto">
+        <motion.div 
+          className="mb-6 max-w-5xl mx-auto"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          viewport={{ once: true }}
+        >
           <div className="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100">
             <img
               src={streakImageUrl}
@@ -78,10 +111,16 @@ export default function GitHubStats() {
               loading="lazy"
             />
           </div>
-        </div>
+        </motion.div>
 
         {/* Row 3: Contribution Graph (Full Width) */}
-        <div className="mb-8 max-w-5xl mx-auto">
+        <motion.div 
+          className="mb-8 max-w-5xl mx-auto"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          viewport={{ once: true }}
+        >
           <div className="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100">
             <img
               src={graphImageUrl}
@@ -90,22 +129,28 @@ export default function GitHubStats() {
               loading="lazy"
             />
           </div>
-        </div>
+        </motion.div>
 
         {/* CTA */}
-        <div className="text-center">
+        <motion.div 
+          className="text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          viewport={{ once: true }}
+        >
           <a
             href={`https://github.com/${GITHUB_USER}`}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-500 text-white rounded-xl font-semibold hover:shadow-lg transition-all duration-300"
           >
-            <FiGithub size={16} />
+            <FiGithub className="text-gray-900" size={16} />
             View GitHub Profile
             <FiExternalLink size={14} />
           </a>
-        </div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   )
 }

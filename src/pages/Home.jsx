@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <div className="font-poppins">
       <Navbar />
-      <main>
+      <main id="main-content">
         <Hero />
         <About />
         <Skills />

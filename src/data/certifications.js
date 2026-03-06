@@ -7,9 +7,20 @@ export const certifications = [
     icon: '🛠️',
     color: 'from-orange-400 to-amber-500',
     link: 'https://drive.google.com/file/d/1egKggpoxpkaUUNyXw_8Cmy2MU-PKewOz/view',
+    verified: true,
   },
   {
     id: 2,
+    title: 'AWS Technical Essentials',
+    issuer: 'AWS Training & Certification',
+    description: 'Completed AWS Technical Essentials covering core AWS services, security, pricing, and architecture best practices.',
+    icon: '☁️',
+    color: 'from-orange-500 to-yellow-400',
+    link: 'https://drive.google.com/file/d/1FQ6xpzMLRGbR3PVoiVjIolk6pKKqd7r1/view?usp=sharing',
+    verified: true,
+  },
+  {
+    id: 3,
     title: 'Gemini Certified Student',
     issuer: 'Google',
     description: 'Demonstrated foundational knowledge in Generative AI and Google AI technologies using Gemini.',
@@ -25,6 +36,7 @@ export const certifications = [
     icon: '🐍',
     color: 'from-blue-500 to-indigo-500',
     link: 'https://www.credly.com/badges/6527a176-a637-452e-b5eb-7ec59173b08c',
+    verified: true,
   },
   {
     id: 4,

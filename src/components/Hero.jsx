@@ -1,10 +1,25 @@
 import { useEffect, useState } from 'react'
+import { motion } from 'framer-motion'
 import { TypeAnimation } from 'react-type-animation'
 import { FiGithub, FiDownload, FiMapPin, FiChevronDown } from 'react-icons/fi'
 import { FaLinkedin } from 'react-icons/fa'
 import profileImage from "../assets/images/profile.png"
 import smartbridgeLogo from "../assets/logos/smartbridge.png"
 import resumeFile from "../assets/resume/akash_resume.pdf"
+
+const fadeInUp = {
+  initial: { opacity: 0, y: 40 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.5 }
+}
+
+const staggerContainer = {
+  animate: {
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
+}
 
 export default function Hero() {
   const [loaded, setLoaded] = useState(false)
@@ -19,19 +34,26 @@ export default function Hero() {
   }
 
   return (
-    <section
+    <motion.section
       id="hero"
-      className="relative pt-20 pb-8 md:pt-24 md:pb-10 lg:pt-28 lg:pb-12 flex items-center bg-white"
+      className="py-16 md:py-20 flex flex-col items-center justify-center"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.6 }}
     >
       {/* Main Content - Two Column Layout */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 w-full">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-8 lg:gap-10 items-center">
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-8 lg:gap-10 items-center"
+          variants={staggerContainer}
+          initial="initial"
+          animate="animate"
+        >
           
           {/* LEFT COLUMN - Profile Identity */}
-          <div
-            className={`flex flex-col items-center transition-all duration-700 ${
-              loaded ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
-            }`}
+          <motion.div
+            className="flex flex-col items-center"
+            variants={fadeInUp}
           >
             {/* Profile Image & Logo Container */}
             <div className="flex flex-col items-center">
@@ -41,8 +63,10 @@ export default function Hero() {
                 <div className="absolute inset-0 rounded-full bg-blue-400/30 blur-2xl transform scale-105" />
                 <img
                   src={profileImage}
-                  alt="Akash Tiwari"
-                  className="relative w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 lg:w-40 lg:h-40 rounded-full border-4 border-white shadow-xl object-cover"
+                  alt="Akash Tiwari - AI ML Engineer Intern"
+                  width={160}
+                  height={160}
+                  className="relative w-36 h-36 md:w-44 md:h-44 rounded-full border-4 border-white shadow-xl object-cover"
                   style={{ boxShadow: '0 10px 40px rgba(30, 58, 138, 0.15)' }}
                 />
               </div>
@@ -51,7 +75,7 @@ export default function Hero() {
               <img
                 src={smartbridgeLogo}
                 alt="SmartBridge"
-                className="h-10 md:h-12 mx-auto mt-3 object-contain opacity-95"
+                className="mt-3 mx-auto h-10 md:h-12 object-contain"
               />
             </div>
 
@@ -67,21 +91,20 @@ export default function Hero() {
 
             {/* Education + Company */}
             <div className="flex items-center justify-center gap-2 mt-1 text-sm text-gray-600">
-              <span>MCA Student | AI/ML Intern at <span className="bg-gradient-to-r from-blue-500 to-blue-700 bg-clip-text text-transparent font-semibold">SmartBridge</span></span>
+              <span>MCA | AI/ML Intern at <span className="bg-gradient-to-r from-blue-500 to-blue-700 bg-clip-text text-transparent font-semibold">SmartBridge</span></span>
             </div>
 
-            {/* Location */}
+            {/* Location */}        
             <div className="flex items-center gap-1 text-gray-500 text-xs sm:text-sm mt-1">
               <FiMapPin size={16} className="text-gray-400" />
               <span>Noida, India | Open to Remote</span>
             </div>
-          </div>
+          </motion.div>
 
           {/* RIGHT COLUMN - Animated Introduction */}
-          <div
-            className={`transition-all duration-700 delay-200 ${
-              loaded ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'
-            }`}
+          <motion.div
+            className="mt-8 md:mt-0"
+            variants={fadeInUp}
           >
             {/* Fixed Heading */}
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2 text-center md:text-left max-w-xl">
@@ -112,13 +135,13 @@ export default function Hero() {
 
             {/* Skill Chips */}
             <div className="flex flex-wrap gap-2 mt-4">
-              <span className="px-3 py-1 text-sm rounded-full bg-blue-50 text-blue-600 border border-blue-100">Python</span>
-              <span className="px-3 py-1 text-sm rounded-full bg-blue-50 text-blue-600 border border-blue-100">Machine Learning</span>
-              <span className="px-3 py-1 text-sm rounded-full bg-blue-50 text-blue-600 border border-blue-100">FastAPI</span>
-              <span className="px-3 py-1 text-sm rounded-full bg-blue-50 text-blue-600 border border-blue-100">Kafka</span>
-              <span className="px-3 py-1 text-sm rounded-full bg-blue-50 text-blue-600 border border-blue-100">SQL</span>
-              <span className="px-3 py-1 text-sm rounded-full bg-blue-50 text-blue-600 border border-blue-100">LLMs</span>
-              <span className="px-3 py-1 text-sm rounded-full bg-blue-50 text-blue-600 border border-blue-100">Generative AI</span>
+              <span className="px-3 py-1 text-sm rounded-full bg-gradient-to-r from-red-500/10 via-green-500/10 to-blue-500/10 text-gray-800 border border-gray-200 hover:from-red-500/20 hover:via-green-500/20 hover:to-blue-500/20 transition-all duration-200">Python</span>
+              <span className="px-3 py-1 text-sm rounded-full bg-gradient-to-r from-red-500/10 via-green-500/10 to-blue-500/10 text-gray-800 border border-gray-200 hover:from-red-500/20 hover:via-green-500/20 hover:to-blue-500/20 transition-all duration-200">Machine Learning</span>
+              <span className="px-3 py-1 text-sm rounded-full bg-gradient-to-r from-red-500/10 via-green-500/10 to-blue-500/10 text-gray-800 border border-gray-200 hover:from-red-500/20 hover:via-green-500/20 hover:to-blue-500/20 transition-all duration-200">FastAPI</span>
+              <span className="px-3 py-1 text-sm rounded-full bg-gradient-to-r from-red-500/10 via-green-500/10 to-blue-500/10 text-gray-800 border border-gray-200 hover:from-red-500/20 hover:via-green-500/20 hover:to-blue-500/20 transition-all duration-200">Kafka</span>
+              <span className="px-3 py-1 text-sm rounded-full bg-gradient-to-r from-red-500/10 via-green-500/10 to-blue-500/10 text-gray-800 border border-gray-200 hover:from-red-500/20 hover:via-green-500/20 hover:to-blue-500/20 transition-all duration-200">SQL</span>
+              <span className="px-3 py-1 text-sm rounded-full bg-gradient-to-r from-red-500/10 via-green-500/10 to-blue-500/10 text-gray-800 border border-gray-200 hover:from-red-500/20 hover:via-green-500/20 hover:to-blue-500/20 transition-all duration-200">LLMs</span>
+              <span className="px-3 py-1 text-sm rounded-full bg-gradient-to-r from-red-500/10 via-green-500/10 to-blue-500/10 text-gray-800 border border-gray-200 hover:from-red-500/20 hover:via-green-500/20 hover:to-blue-500/20 transition-all duration-200">Generative AI</span>
             </div>
 
             {/* Action Buttons */}
@@ -127,42 +150,42 @@ export default function Hero() {
                 href="https://github.com/Akash2126"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 flex items-center justify-center rounded-full bg-white shadow-sm hover:shadow-md transition-all duration-200 text-gray-700 hover:text-blue-600"
+                className="w-10 h-10 flex items-center justify-center rounded-full border border-gray-300 hover:border-blue-500 text-blue-600 hover:bg-blue-50 hover:scale-105 transition-all duration-200"
               >
-                <FiGithub size={18} />
+                <FiGithub className="text-black" size={18} />
               </a>
               <a
                 href="https://linkedin.com/in/akash2126"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 flex items-center justify-center rounded-full bg-white shadow-sm hover:shadow-md transition-all duration-200 text-gray-700 hover:text-blue-600"
+                className="w-10 h-10 flex items-center justify-center rounded-full border border-gray-300 hover:border-blue-500 hover:text-blue-500 hover:scale-105 transition-all duration-200"
               >
                 <FaLinkedin size={18} />
               </a>
               <a
                 href={resumeFile}
                 download
-                className="px-6 py-3 rounded-lg bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-medium shadow-md transition-all duration-200"
+                className="px-5 py-2.5 text-sm font-semibold rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-all duration-200 flex items-center gap-2"
               >
-                <FiDownload size={16} className="inline mr-2" />
+                <FiDownload size={16} />
                 Download Resume
               </a>
             </div>
 
             {/* Scroll Indicator */}
-            <div className="mt-12 flex flex-col items-center text-gray-400 text-sm">
+            <div className="mt-6 flex flex-col items-center">
               <button
                 onClick={scrollToAbout}
-                className="flex flex-col items-center gap-1 hover:text-blue-600 transition-colors duration-300 cursor-pointer"
-              >
-                <span className="opacity-70">Explore More</span>
-                <FiChevronDown className="animate-bounce" size={20} />
+                className="text-blue-600 flex flex-col items-center gap-1 hover:gap-2 transition-all duration-300 cursor-pointer"
+              >   
+                <span className="text-sm font-medium">Explore More</span>
+                <FiChevronDown className="animate-bounce" size={20} />  
               </button>
             </div>
-          </div>
+          </motion.div>
 
-        </div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   )
 }

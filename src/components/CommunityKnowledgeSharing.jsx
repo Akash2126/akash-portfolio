@@ -44,15 +44,14 @@ export default function CommunityKnowledgeSharing() {
                     Instagram
                     <FiExternalLink size={14} />
                   </a>
-                  <a
-                    href="https://www.youtube.com/@TheAnalyticalMind"
+                  <a 
+                    href="https://youtube.com/@akashtiwari-y9i?si=TX0NG3qXA9qjrE8m"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn-outline inline-flex items-center gap-2"
+                    className="px-4 py-2 text-sm font-medium rounded-lg border border-blue-500 text-blue-600 hover:bg-blue-50 transition-all duration-200 flex items-center gap-2"
                   >
-                    <FiYoutube size={18} />
+                    <FiYoutube size={16} />
                     YouTube
-                    <FiExternalLink size={14} />
                   </a>
                 </div>
               </div>

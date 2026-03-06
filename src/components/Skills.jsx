@@ -1,5 +1,21 @@
 import { useEffect, useRef, useState } from 'react'
+import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
+
+const fadeInUp = {
+  initial: { opacity: 0, y: 40 },
+  whileInView: { opacity: 1, y: 0 },
+  transition: { duration: 0.5 },
+  viewport: { once: true }
+}
+
+const staggerContainer = {
+  animate: {
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
+}
 
 const skillCategories = [
   {
@@ -61,9 +77,9 @@ function SkillBar({ skill, animate }) {
         <span className="font-semibold text-slate-800 text-sm">{skill.name}</span>
         <span className="text-sm font-bold text-primary-600">{skill.level}%</span>
       </div>
-      <div className="h-2.5 bg-slate-100 rounded-full overflow-hidden">
+      <div className="w-full bg-slate-100 rounded-full h-2.5 overflow-hidden">
         <div
-          className="h-full bg-gradient-to-r from-primary-500 to-blue-500 transition-all duration-1000 ease-out"
+          className="h-2 rounded-full bg-gradient-to-r from-red-500 via-green-500 to-blue-500 transition-all duration-1000 ease-out"
           style={{ width: animate ? `${skill.level}%` : '0%' }}
         />
       </div>
@@ -73,10 +89,12 @@ function SkillBar({ skill, animate }) {
 
 function SkillCategory({ category, index, animate }) {
   return (
-    <div 
-      className="card p-6"
-      data-aos="fade-up"
-      data-aos-delay={index * 100}
+    <motion.div 
+      className="card p-6 hover:scale-[1.02] transition-transform duration-200"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      viewport={{ once: true }}
     >
       <div className="flex items-center gap-3 mb-5">
         <div className={`w-10 h-10 rounded-xl bg-gradient-to-r ${category.color} flex items-center justify-center`}>
@@ -92,7 +110,7 @@ function SkillCategory({ category, index, animate }) {
           <SkillBar key={skill.name} skill={skill} animate={animate} />
         ))}
       </div>
-    </div>
+    </motion.div>
   )
 }
 
@@ -108,17 +126,37 @@ export default function Skills() {
   }, [inView])
 
   return (
-    <section id="skills" className="section-padding bg-white">
+    <motion.section 
+      id="skills" 
+      className="section-padding bg-white"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      viewport={{ once: true }}
+    >
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-6" data-aos="fade-up">
+        <motion.div 
+          className="text-center mb-6"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+        >
           <span className="badge mx-auto mb-4">Skills</span>
           <h2 className="section-title">Technical Proficiency</h2>
           <p className="section-subtitle mx-auto text-center">
             Core technologies and tools I use to build intelligent systems.
           </p>
-        </div>
+        </motion.div>
 
-        <div ref={ref} className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto">
+        <motion.div 
+          ref={ref} 
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto"
+          variants={staggerContainer}
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true }}
+        >
           {skillCategories.map((category, i) => (
             <SkillCategory 
               key={category.name} 
@@ -127,14 +165,26 @@ export default function Skills() {
               animate={animate} 
             />
           ))}
-        </div>
+        </motion.div>
 
         {/* Tech icons grid */}
-        <div className="mt-16" data-aos="fade-up">
+        <motion.div 
+          className="mt-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+        >
           <h3 className="text-center text-lg font-semibold text-slate-700 mb-8">
             Full Tech Stack
           </h3>
-          <div className="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-10 gap-4">
+          <motion.div 
+            className="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-10 gap-4"
+            variants={staggerContainer}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+          >
             {[
               { emoji: '🐍', name: 'Python' },
               { emoji: '🔬', name: 'TensorFlow' },
@@ -155,9 +205,9 @@ export default function Skills() {
                 <span className="text-xs font-medium text-slate-600 group-hover:text-primary-700 text-center">{tech.name}</span>
               </div>
             ))}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   )
 }

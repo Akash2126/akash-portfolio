@@ -157,7 +157,7 @@ export default function DemoModal({ isOpen, onClose, projectTitle, caseStudy }) 
       />
       
       {/* Modal */}
-      <div className="relative bg-white rounded-2xl shadow-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto animate-fadeIn">
+      <div className="relative bg-white rounded-2xl shadow-2xl w-full max-w-lg h-auto overflow-visible animate-fadeIn">
         {/* Header */}
         <div className="sticky top-0 bg-white border-b border-slate-100 p-6 rounded-t-2xl flex items-center justify-between">
           <div>

@@ -4,7 +4,7 @@ export const experiences = [
     title: 'AI / ML Engineer Intern',
     organization: 'SmartBridge',
     location: 'Noida, India',
-    duration: 'Jan 2026 – Present',
+    duration: 'Dec 2025 – Present',
     description: (
       <ul className="list-disc list-inside text-sm text-slate-500 space-y-1">
         <li>Developing AI-powered applications and ML pipelines.</li>
@@ -14,7 +14,7 @@ export const experiences = [
         <li>Supporting students with AI tools and ML workflows.</li>
       </ul>
     ),
-    skills: ['Python', 'FastAPI', 'Kafka', 'Machine Learning', 'LLMs', 'PostgreSQL'],
+    skills: ['Python', 'Machine Learning', 'Generative AI', 'RAG', 'NLP', 'LLMs', 'FastAPI', 'Kafka', 'AWS', 'PostgreSQL'],
     logo: '/logos/smartbridge.png',
     color: 'from-blue-500 to-indigo-600',
   },

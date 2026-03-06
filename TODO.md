@@ -1,21 +1,70 @@
-# Portfolio Updates - Complete
+# Project Card Hover Interactions - TODO
 
-## About Section Updates ✅
-- Added "About Me" badge centered above heading
-- Main heading with blue gradient typing animation
-- Subtitle with "Machine Learning Intern" highlighted in blue
-- Paragraphs with improved spacing and max-w-xl
-- Skills tags with blue pill styling
-- Two-column layout preserved
+## Task 1: Improve project card hover interactions to make them feel more interactive.
 
-## Hero Section Updates ✅
-1. Role title: Changed to "AI/ML Engineer Intern"
-2. Main heading: Changed to "Building Scalable AI & ML Systems"
-3. Typing animation: Fixed to cycle through "Data-driven ML Solutions", "AI-powered Applications", "Generative AI Systems"
-4. Skills tags: Updated with new styling and tags
-5. Social icons: Now in a flex container with gap-4
-6. Resume button: Updated styling to px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-700
-7. Removed SmartBridge logo
-8. Location unchanged: "Noida, India | Open to Remote"
-9. Scroll indicator preserved
+### Completed:
+- [x] Update card container className to include `bg-white rounded-xl border border-gray-200`
+- [x] Change `shadow-lg` to `hover:shadow-xl` for hover effect
+- [x] Add image section with zoom effect for projects with images
+- [x] Ensure hover effects work on desktop without breaking mobile
+- [x] Buttons use `flex flex-wrap gap-3`
+- [x] Grid layout is mobile responsive
+
+---
+
+## Task 2: Add subtle entrance animations to portfolio sections using framer-motion
+
+### Completed:
+- [x] Installed framer-motion (already in package.json)
+- [x] Hero - Added motion animations with fade in and slide up
+- [x] About - Added motion animations with fade in and slide up  
+- [x] Skills - Added motion animations with fade in and slide up
+- [x] Experience - Added motion animations with fade in and slide up
+- [x] Projects - Added motion animations with fade in and slide up
+- [x] Certifications - Added motion animations with fade in and slide up
+- [x] GitHub Performance - Added motion animations with fade in and slide up
+- [x] Contact - Added motion animations with fade in and slide up
+
+### Animation Settings:
+- Initial: `{ opacity: 0, y: 40 }`
+- whileInView: `{ opacity: 1, y: 0 }`
+- Transition duration: 0.5 seconds
+- viewport: `{ once: true }`
+- Staggered delays for items: `delay: i * 0.1`
+
+---
+
+# Add Framer Motion Entrance Animations - TODO
+
+## Task
+Add subtle entrance animations to portfolio sections when they appear in the viewport.
+
+## Plan
+
+### Step 1: Update Hero.jsx
+- [ ] Add framer-motion for entrance animation
+
+### Step 2: Update About.jsx
+- [ ] Replace AOS with framer-motion
+
+### Step 3: Update Skills.jsx
+- [ ] Replace AOS with framer-motion
+
+### Step 4: Update Experiences.jsx
+- [ ] Replace AOS with framer-motion
+
+### Step 5: Update Projects.jsx
+- [ ] Replace AOS with framer-motion
+
+### Step 6: Update Certifications.jsx
+- [ ] Replace AOS with framer-motion
+
+### Step 7: Update GitHubStats.jsx
+- [ ] Add framer-motion animations
+
+### Step 8: Update Contact.jsx
+- [ ] Replace AOS with framer-motion
+
+### Step 9: Clean up
+- [ ] Remove AOS imports if no longer needed
 

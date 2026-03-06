@@ -68,11 +68,11 @@ export default function AreasOfWork() {
                 {area.description}
               </p>
 
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-3 mt-3">
                 {area.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="text-xs bg-slate-50 text-slate-600 px-2.5 py-1 rounded-full border border-slate-200 font-medium group-hover:bg-primary-50 group-hover:text-primary-700 group-hover:border-primary-100 transition-colors duration-300"
+                    className="px-3 py-1 text-sm font-medium rounded-full bg-gradient-to-r from-red-500/10 via-green-500/10 to-blue-500/10 text-gray-800 border border-gray-200 hover:from-red-500/20 hover:via-green-500/20 hover:to-blue-500/20 transition-all duration-200"
                   >
                     {tag}
                   </span>

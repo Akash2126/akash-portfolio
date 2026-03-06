@@ -6,6 +6,7 @@ export const projects = [
       'Healthcare decision-support platform that recommends affordable hospitals based on treatment type, city, and budget. Features interactive maps, real-time filtering, and AI-powered cost optimization.',
     tech: ['FastAPI', 'PostgreSQL', 'React', 'Tailwind', 'Leaflet'],
     github: 'https://github.com/Akash2126/careopt-ai',
+    projectDoc: 'https://drive.google.com/file/d/1lqZSZ6BmCQelS-BwSWUQOX8RAgQX_00t/view?usp=sharing',
     status: 'Completed',
     icon: '🏥',
     color: 'from-blue-500 to-cyan-500',
@@ -42,6 +43,7 @@ export const projects = [
       'Real-time patient monitoring system that detects abnormal vitals using streaming data pipelines and ML models including Autoencoders and Isolation Forest.',
     tech: ['Python', 'Kafka', 'Flask', 'PostgreSQL', 'Autoencoder', 'Isolation Forest'],
     github: 'https://github.com/Akash2126/AI-Driven-Healthcare-Anomaly-Detection-System',
+    projectDoc: 'https://drive.google.com/file/d/1-meLq8AvsrHulCzaONwCi7nFze4haBgB/view?usp=sharing',
     status: 'Completed',
     icon: '🩺',
     color: 'from-blue-600 to-violet-500',
@@ -84,7 +86,6 @@ export const projects = [
     icon: '🏥',
     color: 'from-teal-500 to-cyan-500',
     domain: 'Healthcare AI',
-    demoImage: '/images/genmed-chatbot.png',
     caseStudy: 'genmed-ai-chatbot'
   },
 ]

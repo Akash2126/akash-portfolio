@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { FiGithub, FiExternalLink, FiPlay, FiX } from 'react-icons/fi'
+import { FiGithub, FiExternalLink, FiPlay, FiX, FiFile } from 'react-icons/fi'
 import { Link } from 'react-router-dom'
 import DemoModal from './DemoModal'
 
@@ -42,10 +42,23 @@ export default function ProjectCard({ project }) {
 
   return (
     <>
-      <div className="card p-6 flex flex-col h-full shine-card group hover:-translate-y-2 transition-all duration-300 shadow-lg">
+      <div className="bg-white rounded-xl border border-gray-200 p-6 flex flex-col h-auto shine-card group transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+        {/* Project Image */}
+        {(project.image || project.demoImage) && (
+          <div className="mb-4 overflow-hidden rounded-lg">
+            <img 
+              src={project.image || project.demoImage} 
+              alt={project.title}
+              className="w-full h-48 object-cover rounded-lg transition-transform duration-300 hover:scale-105"
+              onError={(e) => {
+                e.target.src = "https://dummyimage.com/600x300/e5e7eb/374151&text=AI+Project"
+              }}
+            />
+          </div>
+        )}
         {/* Header */}
         <div className="flex items-start justify-between mb-4">
-          <div className={`w-14 h-14 bg-gradient-to-br ${project.color} rounded-2xl flex items-center justify-center text-2xl shadow-md group-hover:scale-110 transition-transform duration-300`}>
+          <div className={`w-12 h-12 bg-gradient-to-br ${project.color} rounded-xl flex items-center justify-center text-2xl shadow-md group-hover:scale-110 transition-transform duration-300`}>
             {project.icon}
           </div>
           <div className="flex flex-col items-end gap-2">
@@ -58,7 +71,7 @@ export default function ProjectCard({ project }) {
               {project.status}
             </span>
             {project.domain && (
-              <span className="text-xs font-medium text-slate-500 bg-slate-100 px-2.5 py-1 rounded-full">
+              <span className="px-3 py-1 text-xs font-medium rounded-full bg-gradient-to-r from-red-500/10 via-green-500/10 to-blue-500/10 text-gray-800 border border-gray-200">
                 {project.domain}
               </span>
             )}
@@ -116,7 +129,7 @@ export default function ProjectCard({ project }) {
           {project.tech.map((t) => (
             <span
               key={t}
-              className="text-xs bg-primary-50 text-primary-700 border border-primary-100 px-2.5 py-1 rounded-lg font-medium"
+              className="px-3 py-1 text-sm rounded-full bg-gradient-to-r from-red-500/10 via-green-500/10 to-blue-500/10 text-gray-800 border border-gray-200 hover:from-red-500/20 hover:via-green-500/20 hover:to-blue-500/20 transition-all duration-200"
             >
               {t}
             </span>
@@ -124,20 +137,20 @@ export default function ProjectCard({ project }) {
         </div>
 
         {/* Actions */}
-        <div className="flex gap-3 mt-auto pt-4 border-t border-slate-100 flex-wrap">
+        <div className="flex flex-wrap gap-3 mt-4 pt-4 border-t border-slate-100">
           {project.github ? (
-            <a
+<a
               href={project.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-sm font-semibold text-slate-700 hover:text-primary-600 transition-colors"
+              className="flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-all duration-200"
             >
-              <FiGithub size={15} />
+              <FiGithub className="text-black" size={14} />
               View Code
             </a>
           ) : (
-            <span className="flex items-center gap-2 text-sm text-slate-400 cursor-not-allowed">
-              <FiGithub size={15} />
+            <span className="flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg bg-gray-100 text-gray-400 cursor-not-allowed">
+              <FiGithub className="text-black" size={14} />
               Coming Soon
             </span>
           )}
@@ -145,9 +158,9 @@ export default function ProjectCard({ project }) {
           {project.demoImage ? (
             <button
               onClick={() => setShowImageModal(true)}
-              className="flex items-center gap-2 text-sm font-semibold text-emerald-600 hover:text-emerald-700 transition-colors"
+              className="flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-all duration-200"
             >
-              <FiPlay size={15} />
+              <FiPlay size={14} />
               Live Demo
             </button>
           ) : project.demoUrl ? (
@@ -155,27 +168,40 @@ export default function ProjectCard({ project }) {
               href={project.demoUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-sm font-semibold text-emerald-600 hover:text-emerald-700 transition-colors"
+              className="flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-all duration-200"
             >
-              <FiPlay size={15} />
+              <FiPlay size={14} />
               Live Demo
             </a>
           ) : (
             <button
               onClick={() => setShowDemo(true)}
-              className="flex items-center gap-2 text-sm font-semibold text-emerald-600 hover:text-emerald-700 transition-colors"
+              className="flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-all duration-200"
             >
-              <FiPlay size={15} />
+              <FiPlay size={14} />
               Live Demo
             </button>
+          )}
+          
+          {/* Project Doc Button */}
+          {project.projectDoc && (
+            <a
+              href={project.projectDoc}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-all duration-200"
+            >
+              <FiFile size={14} />
+              Project Doc
+            </a>
           )}
           
           {project.demoImage ? (
             <button
               onClick={() => setShowImageModal(true)}
-              className="flex items-center gap-2 text-sm font-semibold text-primary-600 hover:text-primary-700 transition-colors ml-auto"
+              className="flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-all duration-200"
             >
-              <FiExternalLink size={15} />
+              <FiExternalLink size={14} />
               Case Study
             </button>
           ) : project.demoUrl ? (
@@ -183,17 +209,17 @@ export default function ProjectCard({ project }) {
               href={project.demoUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-sm font-semibold text-primary-600 hover:text-primary-700 transition-colors ml-auto"
+              className="flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-all duration-200"
             >
-              <FiExternalLink size={15} />
+              <FiExternalLink size={14} />
               Case Study
             </a>
           ) : (
             <Link
               to={`/case-study/${caseStudyKey}`}
-              className="flex items-center gap-2 text-sm font-semibold text-primary-600 hover:text-primary-700 transition-colors ml-auto"
+              className="flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-all duration-200"
             >
-              <FiExternalLink size={15} />
+              <FiExternalLink size={14} />
               Case Study
             </Link>
           )}
@@ -218,7 +244,7 @@ export default function ProjectCard({ project }) {
           />
           
           {/* Modal content */}
-          <div className="relative bg-white rounded-2xl shadow-2xl w-full max-w-md max-h-[90vh] overflow-hidden animate-fadeIn">
+          <div className="relative bg-white rounded-2xl shadow-2xl w-full max-w-md h-auto overflow-visible animate-fadeIn">
             {/* Close button */}
             <button 
               onClick={() => setShowImageModal(false)}

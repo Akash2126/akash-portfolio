@@ -44,11 +44,11 @@ export default function CurrentlyBuilding() {
               </p>
 
               {/* Tech stack */}
-              <div className="flex flex-wrap gap-2 mb-6">
+              <div className="flex flex-wrap gap-3 mt-3 mb-6">
                 {['Python', 'FastAPI', 'React', 'Machine Learning', 'PostgreSQL', 'NLP'].map((tech) => (
                   <span
                     key={tech}
-                    className="text-xs bg-primary-50 text-primary-700 border border-primary-100 px-2.5 py-1 rounded-lg font-medium"
+                    className="px-3 py-1 text-sm font-medium rounded-full bg-gradient-to-r from-red-500/10 via-green-500/10 to-blue-500/10 text-gray-800 border border-gray-200 hover:from-red-500/20 hover:via-green-500/20 hover:to-blue-500/20 transition-all duration-200"
                   >
                     {tech}
                   </span>

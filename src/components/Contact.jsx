@@ -1,4 +1,12 @@
 import { FiMail, FiGithub, FiLinkedin, FiArrowRight, FiMapPin } from 'react-icons/fi'
+import { motion } from 'framer-motion'
+
+const fadeInUp = {
+  initial: { opacity: 0, y: 40 },
+  whileInView: { opacity: 1, y: 0 },
+  transition: { duration: 0.5 },
+  viewport: { once: true }
+}
 
 const contacts = [
   {
@@ -35,10 +43,23 @@ const contacts = [
 
 export default function Contact() {
   return (
-    <section id="contact" className="section-padding bg-white">
+    <motion.section 
+      id="contact" 
+      className="section-padding bg-white"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      viewport={{ once: true }}
+    >
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-6" data-aos="fade-up">
+        <motion.div 
+          className="text-center mb-6"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+        >
           <span className="badge mx-auto mb-4">Get in Touch</span>
           <h2 className="section-title">Let's Connect</h2>
           <p className="section-subtitle mx-auto text-center">
@@ -49,16 +70,24 @@ export default function Contact() {
             <FiMapPin size={14} className="text-primary-500" />
             <span>Noida, Uttar Pradesh, India · Open to Remote</span>
           </div>
-        </div>
+        </motion.div>
 
         {/* Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 lg:gap-8 max-w-4xl mx-auto">
+        <motion.div 
+          className="grid grid-cols-1 sm:grid-cols-3 gap-6 lg:gap-8 max-w-4xl mx-auto"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+        >
           {contacts.map((c, i) => (
-            <div
+            <motion.div
               key={i}
               className="card p-6 text-center group shine-card"
-              data-aos="fade-up"
-              data-aos-delay={i * 100}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              viewport={{ once: true }}
             >
               <div className={`w-16 h-16 bg-gradient-to-br ${c.gradient} rounded-2xl flex items-center justify-center text-white mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
                 {c.icon}
@@ -74,14 +103,17 @@ export default function Contact() {
                 {c.label}
                 <FiArrowRight size={14} />
               </a>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Bottom CTA banner */}
-        <div
+        <motion.div
           className="mt-10 bg-gradient-to-r from-primary-600 to-blue-500 rounded-2xl p-8 text-center text-white relative overflow-hidden"
-          data-aos="fade-up"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
         >
           <div className="absolute inset-0 grid-dot-bg opacity-10" />
           <div className="relative z-10">
@@ -97,8 +129,8 @@ export default function Contact() {
               Drop me an email
             </a>
           </div>
-        </div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   )
 }

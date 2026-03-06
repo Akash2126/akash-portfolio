@@ -194,7 +194,7 @@ export default function CaseStudyPage() {
               {project.techStack.map((tech) => (
                 <span
                   key={tech}
-                  className="text-sm bg-primary-50 text-primary-700 border border-primary-100 px-3 py-1.5 rounded-lg font-medium"
+                  className="px-3 py-1 text-sm rounded-full bg-gradient-to-r from-red-500/10 via-green-500/10 to-blue-500/10 text-gray-800 border border-gray-200 hover:from-red-500/20 hover:via-green-500/20 hover:to-blue-500/20 transition-all duration-200"
                 >
                   {tech}
                 </span>

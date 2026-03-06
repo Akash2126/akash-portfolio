@@ -31,7 +31,7 @@ export default function Footer() {
             </p>
             <div className="flex gap-3 mt-5">
               {[
-                { icon: <FiGithub />, href: 'https://github.com/Akash2126', title: 'GitHub' },
+{ icon: <FiGithub className="text-black" />, href: 'https://github.com/Akash2126', title: 'GitHub' },
                 { icon: <FiLinkedin />, href: 'https://www.linkedin.com/in/akash2126', title: 'LinkedIn' },
                 { icon: <FiMail />, href: 'mailto:kumarakash02401@gmail.com', title: 'Email' },
               ].map((s) => (
@@ -69,11 +69,11 @@ export default function Footer() {
           {/* Skills */}
           <div>
             <h4 className="text-white font-semibold mb-4">Specializations</h4>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-3 mt-3">
               {['Python', 'Machine Learning', 'NLP', 'LLMs', 'Gen AI', 'FastAPI', 'SQL', 'Kafka'].map((s) => (
                 <span
                   key={s}
-                  className="text-xs bg-slate-800 text-slate-400 px-3 py-1 rounded-full border border-slate-700"
+                  className="px-3 py-1 text-sm font-medium rounded-full text-white border border-white/30 bg-gradient-to-r from-red-500/10 via-green-500/10 to-blue-500/10"
                 >
                   {s}
                 </span>

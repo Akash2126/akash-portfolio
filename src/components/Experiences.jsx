@@ -1,26 +1,63 @@
 import { experiences } from '../data/experiences.jsx'
 import { FiBriefcase } from 'react-icons/fi'
 import smartbridgeLogo from "../assets/logos/smartbridge.png"
+import { motion } from 'framer-motion'
+
+const fadeInUp = {
+  initial: { opacity: 0, y: 40 },
+  whileInView: { opacity: 1, y: 0 },
+  transition: { duration: 0.5 },
+  viewport: { once: true }
+}
+
+const staggerContainer = {
+  animate: {
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
+}
 
 export default function Experiences() {
   return (
-    <section id="experience" className="section-padding bg-slate-50">
+    <motion.section 
+      id="experience" 
+      className="section-padding bg-slate-50"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      viewport={{ once: true }}
+    >
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-10" data-aos="fade-up">
+        <motion.div 
+          className="text-center mb-10"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+        >
           <span className="badge mx-auto mb-4">Career</span>
           <h2 className="section-title">Experience</h2>
           <p className="section-subtitle mx-auto text-center">
             Professional experience and internships that shaped my technical journey.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto"
+          variants={staggerContainer}
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true }}
+        >
           {experiences.map((exp, i) => (
-            <div
+            <motion.div
               key={exp.id}
               className="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-all duration-300 flex flex-col"
-              data-aos="fade-up"
-              data-aos-delay={i * 80}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: i * 0.1 }}
+              viewport={{ once: true }}
             >
               <div className="flex items-center gap-4 mb-4">
                 {exp.logo ? (
@@ -43,7 +80,7 @@ export default function Experiences() {
                 {exp.title}
               </h3>
 
-              <p className="text-xs text-slate-400 font-medium mb-1">
+              <p className="text-xs text-blue-600 font-medium mb-1">
                 {exp.location && <span>{exp.location} • </span>}
                 {exp.duration}
               </p>
@@ -56,17 +93,17 @@ export default function Experiences() {
                 {exp.skills.map((skill, idx) => (
                   <span
                     key={idx}
-                    className="text-xs font-medium text-slate-600 bg-slate-100 px-2.5 py-1 rounded-full"
+                    className="px-3 py-1 text-sm rounded-full bg-gradient-to-r from-red-500/10 via-green-500/10 to-blue-500/10 text-gray-800 border border-gray-200 hover:from-red-500/20 hover:via-green-500/20 hover:to-blue-500/20 transition-all duration-200"
                   >
                     {skill}
                   </span>
                 ))}
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   )
 }
 
